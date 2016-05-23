@@ -4,7 +4,7 @@
 class PhysicsObject;
 
 #include <vector>
-#include <glm\vec2.hpp>
+#include <glm\vec3.hpp>
 
 class PhysicsScene
 {
@@ -18,7 +18,7 @@ public:
 	void RemoveActor(PhysicsObject* actor);
 
 private:
-	glm::vec2 gravity;
+	glm::vec3 gravity;
 	std::vector<PhysicsObject*> actors;
 };
 
