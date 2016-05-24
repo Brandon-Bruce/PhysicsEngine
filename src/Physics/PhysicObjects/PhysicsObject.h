@@ -2,6 +2,7 @@
 #define PHYSICSOBJECT_H
 
 #include <glm\vec3.hpp>
+#include <glm\vec4.hpp>
 
 enum ShapeType
 {
@@ -13,8 +14,8 @@ enum ShapeType
 class PhysicsObject
 {
 public:
-	PhysicsObject();
-	virtual void Update(glm::vec3 gravity, float timeStep) = 0;
+	PhysicsObject(ShapeType shapeID, glm::vec4 colour);
+	virtual void Update(glm::vec3 gravity, float deltaTime) = 0;
 	virtual void Debug() = 0;
 	virtual void MakeGizmos() = 0;
 	virtual void ResetPosition() {};
@@ -22,7 +23,7 @@ public:
 
 private:
 	ShapeType shapeID;
-
+	glm::vec4 colour;
 };
 
 #endif

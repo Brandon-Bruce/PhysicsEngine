@@ -1,6 +1,7 @@
 #include "PhysicsObject.h"
 
-PhysicsObject::PhysicsObject()
+PhysicsObject::PhysicsObject(ShapeType shapeID, glm::vec4 colour) :
+	shapeID(shapeID), colour(colour)
 {
 
 }

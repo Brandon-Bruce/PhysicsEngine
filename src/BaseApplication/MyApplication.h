@@ -6,6 +6,7 @@
 #include <glm/vec3.hpp>
 
 class Camera;
+class PhysicsScene;
 
 class MyApplication : public BaseApplication {
 public:
@@ -25,4 +26,7 @@ private:
 
 	// this is an example position for camera picking
 	glm::vec3	m_pickPosition;
+
+	// the physics scene
+	PhysicsScene* mainScene;
 };

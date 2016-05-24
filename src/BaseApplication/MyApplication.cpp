@@ -7,6 +7,7 @@
 
 #include "Camera.h"
 #include "Gizmos.h"
+#include "PhysicsScene.h"
 
 using glm::vec3;
 using glm::vec4;
@@ -36,6 +37,9 @@ bool MyApplication::startup() {
 	//////////////////////////////////////////////////////////////////////////
 	// YOUR STARTUP CODE HERE
 	//////////////////////////////////////////////////////////////////////////
+	
+
+	// initiate pick position
 	m_pickPosition = glm::vec3(0);
 
 	return true;

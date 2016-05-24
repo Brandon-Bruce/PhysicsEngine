@@ -9,9 +9,10 @@ class PhysicsObject;
 class PhysicsScene
 {
 public:
-	PhysicsScene();
+	PhysicsScene(glm::vec3 gravity);
 	void Update();
-	void Render();
+	void DebugScene();
+	void AddGizmos();
 	~PhysicsScene();
 
 	void AddActor(PhysicsObject* actor);
@@ -20,6 +21,7 @@ public:
 private:
 	glm::vec3 gravity;
 	std::vector<PhysicsObject*> actors;
+	float deltaTime;
 };
 
 #endif

@@ -39,7 +39,10 @@
     <ClCompile Include="src\Physics\PhysicObjects\PhysicsObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Physics\PhysicObjects\DIYRigidBody.cpp">
+    <ClCompile Include="src\Physics\PhysicObjects\RigidBody\DIYRigidBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Physics\PhysicObjects\RigidBody\Sphere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +68,10 @@
     <ClInclude Include="src\Physics\PhysicObjects\PhysicsObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Physics\PhysicObjects\DIYRigidBody.h">
+    <ClInclude Include="src\Physics\PhysicObjects\RigidBody\DIYRigidBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\PhysicObjects\RigidBody\Sphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
