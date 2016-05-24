@@ -11,7 +11,7 @@ DIYRigidBody::DIYRigidBody(ShapeType shapeID, glm::vec4 colour,
 void DIYRigidBody::Update(glm::vec3 gravity, float deltaTime)
 {
 	position += velocity * deltaTime;
-	velocity += gravity * deltaTime;
+	ApplyForce(gravity * deltaTime);
 }
 
 void DIYRigidBody::Debug()
@@ -26,12 +26,13 @@ void DIYRigidBody::MakeGizmo()
 
 void DIYRigidBody::ApplyForce(glm::vec3 force)
 {
-
+	velocity += force / mass;
 }
 
 void DIYRigidBody::ApplyForceToActor(DIYRigidBody* actor2, glm::vec3 force)
 {
-
+	ApplyForce(-force);
+	actor2->ApplyForce(force);
 }
 
 DIYRigidBody::~DIYRigidBody()

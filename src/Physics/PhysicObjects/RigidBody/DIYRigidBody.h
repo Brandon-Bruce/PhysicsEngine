@@ -18,7 +18,7 @@ public:
 	void ApplyForceToActor(DIYRigidBody* actor2, glm::vec3 force);
 	~DIYRigidBody();
 
-private:
+protected:
 	glm::vec3 position;
 	glm::vec3 rotation;
 	glm::vec3 velocity;

@@ -45,6 +45,9 @@
     <ClCompile Include="src\Physics\PhysicObjects\RigidBody\Sphere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Physics\PhysicObjects\Plane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BaseApplication\MyApplication.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Physics\PhysicObjects\RigidBody\Sphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\PhysicObjects\Plane.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -17,11 +17,11 @@ public:
 	PhysicsObject(ShapeType shapeID, glm::vec4 colour);
 	virtual void Update(glm::vec3 gravity, float deltaTime) = 0;
 	virtual void Debug() = 0;
-	virtual void MakeGizmos() = 0;
+	virtual void MakeGizmo() = 0;
 	virtual void ResetPosition() {};
 	~PhysicsObject();
 
-private:
+protected:
 	ShapeType shapeID;
 	glm::vec4 colour;
 };

@@ -7,7 +7,9 @@
 
 #include "Camera.h"
 #include "Gizmos.h"
+
 #include "PhysicsScene.h"
+#include "Sphere.h"
 
 using glm::vec3;
 using glm::vec4;
@@ -37,7 +39,13 @@ bool MyApplication::startup() {
 	//////////////////////////////////////////////////////////////////////////
 	// YOUR STARTUP CODE HERE
 	//////////////////////////////////////////////////////////////////////////
-	
+	glm::vec3 gravity(0, 0, 0);
+	mainScene = new PhysicsScene(gravity);
+	Sphere* ball;
+	ball = new Sphere(glm::vec4(1, 0, 0, 1),
+		glm::vec3(-40, 0, 0), glm::vec3(0, 0, 0),
+		glm::vec3(0, 0, 0), 1.0f, 3.0f);
+	mainScene->AddActor(ball);
 
 	// initiate pick position
 	m_pickPosition = glm::vec3(0);
@@ -50,6 +58,7 @@ void MyApplication::shutdown() {
 	//////////////////////////////////////////////////////////////////////////
 	// YOUR SHUTDOWN CODE HERE
 	//////////////////////////////////////////////////////////////////////////
+	delete mainScene;
 
 	// delete our camera and cleanup gizmos
 	delete m_camera;
@@ -75,6 +84,8 @@ bool MyApplication::update(float deltaTime) {
 	//////////////////////////////////////////////////////////////////////////
 	// YOUR UPDATE CODE HERE
 	//////////////////////////////////////////////////////////////////////////
+	mainScene->Update(deltaTime);
+	mainScene->AddGizmos();
 
 	// an example of mouse picking
 	if (glfwGetMouseButton(m_window, 0) == GLFW_PRESS) {

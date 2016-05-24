@@ -1,31 +1,34 @@
 #include "PhysicsScene.h"
-#include "PhysicsObject.h"
+#include "Sphere.h"
 
-PhysicsScene::PhysicsScene(glm::vec3 gravity)
+PhysicsScene::PhysicsScene(glm::vec3 gravity) : gravity(gravity)
 {
 
 }
 
-void PhysicsScene::Update()
+void PhysicsScene::Update(float deltaTime)
 {
+	// update actors
 	for (unsigned int i = 0; i < actors.size(); ++i)
 		actors[i]->Update(gravity, deltaTime);
 }
 
 void PhysicsScene::DebugScene()
 {
+
 }
 
 void PhysicsScene::AddGizmos()
 {
+	// add gizmos for actors to scene
 	for (unsigned int i = 0; i < actors.size(); ++i)
-		actors[i]->MakeGizmos();
+		actors[i]->MakeGizmo();
 }
 
 PhysicsScene::~PhysicsScene()
 {
 	// clean up actors
-	for (int i = 0; i < actors.size(); ++i)
+	for (unsigned int i = 0; i < actors.size(); ++i)
 		delete actors[i];
 	actors.clear();
 }

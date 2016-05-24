@@ -101,7 +101,8 @@ void Camera::update(float deltaTime)
 	m_projectionView = m_projection * m_view;
 }
 
-glm::vec3 Camera::screenPositionToDirection(float x, float y) const {
+glm::vec3 Camera::screenPositionToDirection(float x, float y) const
+{
 	
 	int width = 0, height = 0;
 	glfwGetWindowSize(glfwGetCurrentContext(), &width, &height);
@@ -114,7 +115,8 @@ glm::vec3 Camera::screenPositionToDirection(float x, float y) const {
 	return glm::normalize(m_transform * glm::vec4(screenPos, 0)).xyz();
 }
 
-glm::vec3 Camera::pickAgainstPlane(float x, float y, const glm::vec4& plane) const {
+glm::vec3 Camera::pickAgainstPlane(float x, float y, const glm::vec4& plane) const
+{
 
 	int width = 0, height = 0;
 	glfwGetWindowSize(glfwGetCurrentContext(), &width, &height);
