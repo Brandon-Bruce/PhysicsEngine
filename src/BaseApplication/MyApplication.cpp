@@ -10,6 +10,7 @@
 
 #include "PhysicsScene.h"
 #include "Sphere.h"
+#include "Plane.h"
 
 using glm::vec3;
 using glm::vec4;
@@ -39,13 +40,20 @@ bool MyApplication::startup() {
 	//////////////////////////////////////////////////////////////////////////
 	// YOUR STARTUP CODE HERE
 	//////////////////////////////////////////////////////////////////////////
-	glm::vec3 gravity(0, 0, 0);
+	glm::vec3 gravity(0, 1, 0);
 	mainScene = new PhysicsScene(gravity);
+
+	// create ball
 	Sphere* ball;
 	ball = new Sphere(glm::vec4(1, 0, 0, 1),
 		glm::vec3(-40, 0, 0), glm::vec3(0, 0, 0),
 		glm::vec3(0, 0, 0), 1.0f, 3.0f);
 	mainScene->AddActor(ball);
+
+	// create plane
+	Plane* plane;
+	plane = new Plane(glm::vec4(1, 1, 1, 1), glm::vec2(0.f, 60.f), 10);
+	mainScene->AddActor(plane);
 
 	// initiate pick position
 	m_pickPosition = glm::vec3(0);
@@ -123,10 +131,12 @@ void MyApplication::draw() {
 	// display the 3D gizmos
 	Gizmos::draw(m_camera->getProjectionView());
 
+	//Gizmos::add2DLine(glm::vec2(10, 100), glm::vec2(100, 100), glm::vec4(1, 1, 1, 1));
+
 	// get a orthographic projection matrix and draw 2D gizmos
 	int width = 0, height = 0;
 	glfwGetWindowSize(m_window, &width, &height);
-	mat4 guiMatrix = glm::ortho<float>(0, 0, (float)width, (float)height);
+	mat4 guiMatrix = glm::ortho<float>(0, (float)width, (float)height, 0);
 
-	Gizmos::draw2D(m_camera->getProjectionView());
+	Gizmos::draw2D(guiMatrix);
 }
